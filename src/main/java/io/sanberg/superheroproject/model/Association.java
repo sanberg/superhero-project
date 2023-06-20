@@ -3,14 +3,14 @@ package io.sanberg.superheroproject.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "powers")
-public class Power {
+@Table(name = "associations")
+public class Association {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    String powerName;
+    private String associationText;
 
     @ManyToOne
     @JoinColumn(name = "superhero_id")

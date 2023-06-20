@@ -36,7 +36,6 @@ public class SuperheroService {
         }
     }
 
-
     public Optional<Superhero> getSuperheroById(long id) {
         return superheroRepository.findById(id);
     }

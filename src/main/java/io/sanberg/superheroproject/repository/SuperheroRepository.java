@@ -7,5 +7,7 @@ import java.util.Optional;
 
 public interface SuperheroRepository extends JpaRepository<Superhero, Long> {
     Optional<Superhero> findByName(String name);
+
+    Optional<Superhero> findByAlias(String alias);
 }
 

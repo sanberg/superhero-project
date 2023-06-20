@@ -2,6 +2,8 @@ package io.sanberg.superheroproject.model;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
+
 @Entity
 @Table(name = "associations")
 public class Association {
@@ -10,19 +12,10 @@ public class Association {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @ManyToMany(mappedBy = "associations")
+    private Collection<Superhero> superheroes;
     private String associationText;
 
-    @ManyToOne
-    @JoinColumn(name = "superhero_id")
-    private Superhero superhero;
-
-    public Superhero getSuperhero() {
-        return superhero;
-    }
-
-    public void setSuperhero(Superhero superhero) {
-        this.superhero = superhero;
-    }
 
     public Long getId() {
         return id;
@@ -30,5 +23,21 @@ public class Association {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Collection<Superhero> getSuperheroes() {
+        return superheroes;
+    }
+
+    public void setSuperheroes(Collection<Superhero> superheroes) {
+        this.superheroes = superheroes;
+    }
+
+    public String getAssociationText() {
+        return associationText;
+    }
+
+    public void setAssociationText(String associationText) {
+        this.associationText = associationText;
     }
 }

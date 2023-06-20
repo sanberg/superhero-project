@@ -13,14 +13,25 @@ public class Superhero {
     private Long id;
 
     private String name;
+    @Column(nullable = false, unique = true, updatable = false)
     private String alias;
     private String origin;
-    @OneToMany(mappedBy = "superhero")
+    @ManyToMany
+    @JoinTable(
+            name = "superhero_powers_mapping",
+            joinColumns = @JoinColumn(name = "superhero_id"),
+            inverseJoinColumns = @JoinColumn(name = "power_id")
+    )
     private ArrayList<Power> powers;
     @OneToMany(mappedBy = "superhero")
     private ArrayList<Weapon> weapons;
 
-    @OneToMany(mappedBy = "superhero")
+    @ManyToMany
+    @JoinTable(
+            name = "superhero_associatons_mapping",
+            joinColumns = @JoinColumn(name = "superhero_id"),
+            inverseJoinColumns = @JoinColumn(name = "association_id")
+    )
     private ArrayList<Association> associations;
 
     public Superhero(Long id, String name, String alias, String origin, ArrayList<Power> powers, ArrayList<Weapon> weapons, ArrayList<Association> associations) {

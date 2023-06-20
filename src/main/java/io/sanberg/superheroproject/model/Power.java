@@ -2,6 +2,8 @@ package io.sanberg.superheroproject.model;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
+
 @Entity
 @Table(name = "powers")
 public class Power {
@@ -12,17 +14,8 @@ public class Power {
 
     String powerName;
 
-    @ManyToOne
-    @JoinColumn(name = "superhero_id")
-    private Superhero superhero;
-
-    public Superhero getSuperhero() {
-        return superhero;
-    }
-
-    public void setSuperhero(Superhero superhero) {
-        this.superhero = superhero;
-    }
+    @ManyToMany(mappedBy = "powers")
+    private Collection<Superhero> superheroes;
 
     public Long getId() {
         return id;
@@ -30,5 +23,13 @@ public class Power {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Collection<Superhero> getSuperheroes() {
+        return superheroes;
+    }
+
+    public void setSuperheroes(Collection<Superhero> superheroes) {
+        this.superheroes = superheroes;
     }
 }

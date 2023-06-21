@@ -3,6 +3,7 @@ package io.sanberg.superheroproject.model;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "superhero")
@@ -16,23 +17,23 @@ public class Superhero {
     @Column(nullable = false, unique = true, updatable = false)
     private String alias;
     private String origin;
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "superhero_powers_mapping",
             joinColumns = @JoinColumn(name = "superhero_id"),
             inverseJoinColumns = @JoinColumn(name = "power_id")
     )
-    private ArrayList<Power> powers;
+    private List<Power> powers;
     @OneToMany(mappedBy = "superhero")
-    private ArrayList<Weapon> weapons;
+    private List<Weapon> weapons;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "superhero_associatons_mapping",
             joinColumns = @JoinColumn(name = "superhero_id"),
             inverseJoinColumns = @JoinColumn(name = "association_id")
     )
-    private ArrayList<Association> associations;
+    private List<Association> associations;
 
     public Superhero(Long id, String name, String alias, String origin, ArrayList<Power> powers, ArrayList<Weapon> weapons, ArrayList<Association> associations) {
         this.id = id;
@@ -81,23 +82,23 @@ public class Superhero {
         this.origin = origin;
     }
 
-    public ArrayList<Power> getPowers() {
+    public List<Power> getPowers() {
         return powers;
     }
 
-    public void setPowers(ArrayList<Power> powers) {
+    public void setPowers(List<Power> powers) {
         this.powers = powers;
     }
 
-    public ArrayList<Weapon> getWeapons() {
+    public List<Weapon> getWeapons() {
         return weapons;
     }
 
-    public void setWeapons(ArrayList<Weapon> weapons) {
+    public void setWeapons(List<Weapon> weapons) {
         this.weapons = weapons;
     }
 
-    public ArrayList<Association> getAssociations() {
+    public List<Association> getAssociations() {
         return associations;
     }
 

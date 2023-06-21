@@ -12,9 +12,13 @@ public class Association {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToMany(mappedBy = "associations")
+    @ManyToMany(mappedBy = "associations", cascade = CascadeType.PERSIST)
     private Collection<Superhero> superheroes;
     private String associationText;
+
+    public Association() {
+
+    }
 
 
     public Long getId() {
@@ -38,6 +42,16 @@ public class Association {
     }
 
     public void setAssociationText(String associationText) {
+        this.associationText = associationText;
+    }
+
+    public Association(Long id, Collection<Superhero> superheroes, String associationText) {
+        this.id = id;
+        this.superheroes = superheroes;
+        this.associationText = associationText;
+    }
+
+    public Association(String associationText) {
         this.associationText = associationText;
     }
 }

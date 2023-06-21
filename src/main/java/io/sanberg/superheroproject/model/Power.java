@@ -17,6 +17,10 @@ public class Power {
     @ManyToMany(mappedBy = "powers")
     private Collection<Superhero> superheroes;
 
+    public Power() {
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -31,5 +35,23 @@ public class Power {
 
     public void setSuperheroes(Collection<Superhero> superheroes) {
         this.superheroes = superheroes;
+    }
+
+    public String getPowerName() {
+        return powerName;
+    }
+
+    public void setPowerName(String powerName) {
+        this.powerName = powerName;
+    }
+
+    public Power(Long id, String powerName, Collection<Superhero> superheroes) {
+        this.id = id;
+        this.powerName = powerName;
+        this.superheroes = superheroes;
+    }
+
+    public Power(String powerName) {
+        this.powerName = powerName;
     }
 }

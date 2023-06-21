@@ -15,6 +15,10 @@ public class Weapon {
     @JoinColumn(name = "superhero_id")
     private Superhero superhero;
 
+    public Weapon() {
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -37,5 +41,15 @@ public class Weapon {
 
     public void setSuperhero(Superhero superhero) {
         this.superhero = superhero;
+    }
+
+    public Weapon(Long id, String weaponName, Superhero superhero) {
+        this.id = id;
+        this.weaponName = weaponName;
+        this.superhero = superhero;
+    }
+
+    public Weapon(String weaponName) {
+        this.weaponName = weaponName;
     }
 }

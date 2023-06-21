@@ -1,9 +1,11 @@
 package io.sanberg.superheroproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "superhero")
@@ -82,7 +84,14 @@ public class Superhero {
         this.origin = origin;
     }
 
-    public List<Power> getPowers() {
+    public List<String> getPowers() {
+        return powers.stream()
+                .map(Power::getPowerName)
+                .collect(Collectors.toList());
+    }
+
+    @JsonIgnore
+    public List<Power> getPowersList() {
         return powers;
     }
 
@@ -90,7 +99,14 @@ public class Superhero {
         this.powers = powers;
     }
 
-    public List<Weapon> getWeapons() {
+    public List<String> getWeapons() {
+        return weapons.stream()
+                .map(Weapon::getWeaponName)
+                .collect(Collectors.toList());
+    }
+
+    @JsonIgnore
+    public List<Weapon> getWeaponsList() {
         return weapons;
     }
 
@@ -98,7 +114,14 @@ public class Superhero {
         this.weapons = weapons;
     }
 
-    public List<Association> getAssociations() {
+    public List<String> getAssociations() {
+        return associations.stream()
+                .map(Association::getAssociationText)
+                .collect(Collectors.toList());
+    }
+
+    @JsonIgnore
+    public List<Association> getAssociationsList() {
         return associations;
     }
 

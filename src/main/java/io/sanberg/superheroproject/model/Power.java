@@ -1,5 +1,6 @@
 package io.sanberg.superheroproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -14,6 +15,8 @@ public class Power {
 
     String powerName;
 
+
+    @JsonIgnore
     @ManyToMany(mappedBy = "powers")
     private Collection<Superhero> superheroes;
 

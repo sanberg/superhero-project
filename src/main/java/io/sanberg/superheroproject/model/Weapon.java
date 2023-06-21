@@ -1,5 +1,6 @@
 package io.sanberg.superheroproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class Weapon {
 
     String weaponName;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "superhero_id")
     private Superhero superhero;
 

@@ -1,5 +1,6 @@
 package io.sanberg.superheroproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -12,6 +13,8 @@ public class Association {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
+    @JsonIgnore
     @ManyToMany(mappedBy = "associations", cascade = CascadeType.PERSIST)
     private Collection<Superhero> superheroes;
     private String associationText;

@@ -9,6 +9,7 @@ import java.util.Collection;
 @Table(name = "associations")
 public class Association {
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;

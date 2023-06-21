@@ -11,6 +11,7 @@ public class Power {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
+    @JsonIgnore
     private Long id;
 
     String powerName;
@@ -56,5 +57,6 @@ public class Power {
 
     public Power(String powerName) {
         this.powerName = powerName;
+        this.superheroes = superheroes;
     }
 }

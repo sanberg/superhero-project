@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 @Table(name = "weapons")
 public class Weapon {
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;

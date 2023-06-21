@@ -26,7 +26,7 @@ public class Superhero {
             inverseJoinColumns = @JoinColumn(name = "power_id")
     )
     private List<Power> powers;
-    @OneToMany(mappedBy = "superhero")
+    @OneToMany(mappedBy = "superhero", cascade = CascadeType.ALL)
     private List<Weapon> weapons;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})

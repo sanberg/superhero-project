@@ -31,7 +31,7 @@ public class SuperheroController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/save")
+    @PostMapping("/add")
     public ResponseEntity<Superhero> addSuperhero(@RequestBody Superhero superhero) {
         return new ResponseEntity<>(superheroService.saveSuperhero(superhero), HttpStatus.OK);
     }

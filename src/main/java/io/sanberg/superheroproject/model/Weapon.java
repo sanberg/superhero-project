@@ -13,13 +13,16 @@ public class Weapon {
     private Long id;
 
     String weaponName;
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "superhero_id")
-    private Superhero superhero;
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "superhero_id", nullable = false)
+    private Superhero superheroes;
 
     public Weapon() {
 
+    }
+
+    public Weapon(String weaponName) {
+        this.weaponName = weaponName;
     }
 
     public Long getId() {
@@ -38,21 +41,12 @@ public class Weapon {
         this.weaponName = weaponName;
     }
 
-    public Superhero getSuperhero() {
-        return superhero;
+
+    public Superhero getSuperheroes() {
+        return superheroes;
     }
 
-    public void setSuperhero(Superhero superhero) {
-        this.superhero = superhero;
-    }
-
-    public Weapon(Long id, String weaponName, Superhero superhero) {
-        this.id = id;
-        this.weaponName = weaponName;
-        this.superhero = superhero;
-    }
-
-    public Weapon(String weaponName) {
-        this.weaponName = weaponName;
+    public void setSuperheroes(Superhero superheroes) {
+        this.superheroes = superheroes;
     }
 }

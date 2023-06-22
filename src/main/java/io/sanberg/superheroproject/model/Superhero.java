@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@Table(name = "superhero")
+@Table(name = "superheroes")
 public class Superhero {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,7 +26,10 @@ public class Superhero {
             inverseJoinColumns = @JoinColumn(name = "power_id")
     )
     private List<Power> powers;
-    @OneToMany(mappedBy = "superhero", cascade = CascadeType.ALL)
+    //@OneToMany(mappedBy = "superhero")
+
+
+    @OneToMany(mappedBy = "superheroes")
     private List<Weapon> weapons;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})

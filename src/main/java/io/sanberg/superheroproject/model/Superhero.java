@@ -29,7 +29,7 @@ public class Superhero {
     //@OneToMany(mappedBy = "superhero")
 
 
-    @OneToMany(mappedBy = "superheroes")
+    @OneToMany(mappedBy = "superhero", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Weapon> weapons;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -113,8 +113,13 @@ public class Superhero {
         return weapons;
     }
 
+/*  TODO Why should it be done only with custom setter?
+    in case of onetomany relation
+    DTO pattern?*/
     public void setWeapons(List<Weapon> weapons) {
-        this.weapons = weapons;
+        this.weapons = weapons.stream()
+                .peek(weapon -> weapon.setSuperhero(this))
+                .toList();
     }
 
     public List<String> getAssociations() {

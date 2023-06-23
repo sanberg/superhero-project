@@ -1,0 +1,551 @@
+{
+	"info": {
+		"_postman_id": "4fd84ee1-d930-4d27-a74f-3267cbbe4284",
+		"name": "Superhero app testing request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7906138"
+	},
+	"item": [
+		{
+			"name": "SuperheroApp",
+			"item": [
+				{
+					"name": "add superhero",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alias\": \"Iron Man\",\r\n    \"name\": \"Tony Stark\",\r\n    \"powers\": [\"genius-intelligence\", \"wealth\"],\r\n    \"weapons\": [\"arc-reactor\", \"iron-man-suit\", \"iron-legion\"],\r\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\r\n    \"associations\": [\"war-machine\", \"avengers\", \"jarvis\", \"thanos\", \"pepper-potts\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8881/superheroes/api/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8881",
+							"path": [
+								"superheroes",
+								"api",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "iron man",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"alias\": \"Iron Man\",\r\n    \"name\": \"Tony Stark\",\r\n    \"powers\": [\"genius-intelligence\", \"wealth\"],\r\n    \"weapons\": [\"arc-reactor\", \"iron-man-suit\", \"iron-legion\"],\r\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\r\n    \"associations\": [\"war-machine\", \"avengers\", \"jarvis\", \"thanos\", \"pepper-potts\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/superheroes/api/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"superheroes",
+										"api",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jun 2023 21:23:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Tony Stark\",\n    \"alias\": \"Iron Man\",\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\n    \"powers\": [\n        \"genius-intelligence\",\n        \"wealth\"\n    ],\n    \"weapons\": [\n        \"arc-reactor\",\n        \"iron-man-suit\",\n        \"iron-legion\"\n    ],\n    \"associations\": [\n        \"war-machine\",\n        \"avengers\",\n        \"jarvis\",\n        \"thanos\",\n        \"pepper-potts\"\n    ]\n}"
+						},
+						{
+							"name": "captain marvel",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"alias\": \"Captain Marvel\",\r\n    \"name\": \"Carol Danvers\",\r\n    \"powers\": [\"photon-blast\", \"flight\", \"super-strength\", \"healing\"],\r\n    \"weapons\": [],\r\n    \"origin\": \"Exposed to Space Stone reactor overload\",\r\n    \"associations\": [\"space-stone\", \"skrulls\", \"photon\", \"kree\", \"avengers\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8881/superheroes/api/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8881",
+									"path": [
+										"superheroes",
+										"api",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jun 2023 21:24:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"Carol Danvers\",\n    \"alias\": \"Captain Marvel\",\n    \"origin\": \"Exposed to Space Stone reactor overload\",\n    \"powers\": [\n        \"photon-blast\",\n        \"flight\",\n        \"super-strength\",\n        \"healing\"\n    ],\n    \"weapons\": [],\n    \"associations\": [\n        \"space-stone\",\n        \"skrulls\",\n        \"photon\",\n        \"kree\",\n        \"avengers\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update superhero",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"alias\": \"Iron Man\",\r\n    \"name\": \"Tony Stark\",\r\n    \"powers\": [\"genius-intelligence\", \"wealth\"],\r\n    \"weapons\": [\"arc-reactor\", \"iron-man-suit\", \"iron-legion\", \"edith-glasses\"],\r\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\r\n    \"associations\": [\"war-machine\", \"avengers\", \"jarvis\", \"thanos\", \"pepper-potts\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8881/superheroes/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8881",
+							"path": [
+								"superheroes",
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "iron man",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"alias\": \"Iron Man\",\r\n    \"name\": \"Tony Stark\",\r\n    \"powers\": [\"genius-intelligence\", \"wealth\"],\r\n    \"weapons\": [\"arc-reactor\", \"iron-man-suit\", \"iron-legion\"],\r\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\r\n    \"associations\": [\"war-machine\", \"avengers\", \"jarvis\", \"thanos\", \"pepper-potts\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/superheroes/api/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"superheroes",
+										"api",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jun 2023 21:23:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Tony Stark\",\n    \"alias\": \"Iron Man\",\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\n    \"powers\": [\n        \"genius-intelligence\",\n        \"wealth\"\n    ],\n    \"weapons\": [\n        \"arc-reactor\",\n        \"iron-man-suit\",\n        \"iron-legion\"\n    ],\n    \"associations\": [\n        \"war-machine\",\n        \"avengers\",\n        \"jarvis\",\n        \"thanos\",\n        \"pepper-potts\"\n    ]\n}"
+						},
+						{
+							"name": "captain marvel",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"alias\": \"Captain Marvel\",\r\n    \"name\": \"Carol Danvers\",\r\n    \"powers\": [\"photon-blast\", \"flight\", \"super-strength\", \"healing\"],\r\n    \"weapons\": [],\r\n    \"origin\": \"Exposed to Space Stone reactor overload\",\r\n    \"associations\": [\"space-stone\", \"skrulls\", \"photon\", \"kree\", \"avengers\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/superheroes/api/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"superheroes",
+										"api",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jun 2023 21:24:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"Carol Danvers\",\n    \"alias\": \"Captain Marvel\",\n    \"origin\": \"Exposed to Space Stone reactor overload\",\n    \"powers\": [\n        \"photon-blast\",\n        \"flight\",\n        \"super-strength\",\n        \"healing\"\n    ],\n    \"weapons\": [],\n    \"associations\": [\n        \"space-stone\",\n        \"skrulls\",\n        \"photon\",\n        \"kree\",\n        \"avengers\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get by alias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8881/superheroes/api/getByAlias?alias=Iron Man",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8881",
+							"path": [
+								"superheroes",
+								"api",
+								"getByAlias"
+							],
+							"query": [
+								{
+									"key": "alias",
+									"value": "Iron Man"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get by alias",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/superheroes/api/getByAlias?alias=Iron Man",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"superheroes",
+										"api",
+										"getByAlias"
+									],
+									"query": [
+										{
+											"key": "alias",
+											"value": "Iron Man"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Jun 2023 09:29:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Tony Stark\",\n    \"alias\": \"Iron Man\",\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\n    \"powers\": [\n        \"genius-intelligence\",\n        \"wealth\"\n    ],\n    \"weapons\": [\n        \"arc-reactor\",\n        \"iron-man-suit\",\n        \"iron-legion\"\n    ],\n    \"associations\": [\n        \"war-machine\",\n        \"avengers\",\n        \"jarvis\",\n        \"thanos\",\n        \"pepper-potts\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8881/superheroes/api/getById/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8881",
+							"path": [
+								"superheroes",
+								"api",
+								"getById",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/superheroes/api/getById/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"superheroes",
+										"api",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Jun 2023 10:19:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Tony Stark\",\n    \"alias\": \"Iron Man\",\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\n    \"powers\": [\n        \"genius-intelligence\",\n        \"wealth\"\n    ],\n    \"weapons\": [\n        \"arc-reactor\",\n        \"iron-man-suit\",\n        \"iron-legion\"\n    ],\n    \"associations\": [\n        \"war-machine\",\n        \"avengers\",\n        \"jarvis\",\n        \"thanos\",\n        \"pepper-potts\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8881/superheroes/api/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8881",
+							"path": [
+								"superheroes",
+								"api",
+								"getAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get by alias",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/superheroes/api/getByAlias?alias=Iron Man",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"superheroes",
+										"api",
+										"getByAlias"
+									],
+									"query": [
+										{
+											"key": "alias",
+											"value": "Iron Man"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Jun 2023 09:29:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Tony Stark\",\n    \"alias\": \"Iron Man\",\n    \"origin\": \"Kidnapped in Afghanistan, created the first iron-man suit to escape.\",\n    \"powers\": [\n        \"genius-intelligence\",\n        \"wealth\"\n    ],\n    \"weapons\": [\n        \"arc-reactor\",\n        \"iron-man-suit\",\n        \"iron-legion\"\n    ],\n    \"associations\": [\n        \"war-machine\",\n        \"avengers\",\n        \"jarvis\",\n        \"thanos\",\n        \"pepper-potts\"\n    ]\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

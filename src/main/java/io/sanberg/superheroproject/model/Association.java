@@ -10,13 +10,13 @@ import java.util.Collection;
 public class Association {
     @Id
     @JsonIgnore
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "associations", cascade = CascadeType.PERSIST)
+    @ManyToMany(mappedBy = "associations", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
     private Collection<Superhero> superheroes;
     private String associationText;
 

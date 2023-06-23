@@ -19,7 +19,7 @@ public class Superhero {
     @Column(nullable = false, unique = true, updatable = false)
     private String alias;
     private String origin;
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "superhero_powers_mapping",
             joinColumns = @JoinColumn(name = "superhero_id"),
@@ -32,7 +32,7 @@ public class Superhero {
     @OneToMany(mappedBy = "superhero", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Weapon> weapons;
 
-    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(
             name = "superhero_associatons_mapping",
             joinColumns = @JoinColumn(name = "superhero_id"),

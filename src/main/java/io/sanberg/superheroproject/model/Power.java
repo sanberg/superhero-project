@@ -9,7 +9,7 @@ import java.util.Collection;
 @Table(name = "powers")
 public class Power {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     @JsonIgnore
     private Long id;
@@ -18,7 +18,7 @@ public class Power {
 
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "powers")
+    @ManyToMany(mappedBy = "powers", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
     private Collection<Superhero> superheroes;
 
     public Power() {

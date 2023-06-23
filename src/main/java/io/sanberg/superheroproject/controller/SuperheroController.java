@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,6 +29,14 @@ public class SuperheroController {
         Optional<Superhero> superheroOptional = superheroService.getSuperheroByAlias(alias);
         return superheroOptional
                 .map(superhero -> new ResponseEntity<>(superhero, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Superhero>> getAllSuperheroes() {
+        Optional<List<Superhero>> superheroListOptional = superheroService.getAllSuperheroes();
+        return superheroListOptional
+                .map(superheroList -> new ResponseEntity<>(superheroList, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 

@@ -19,7 +19,7 @@ public class Superhero {
     @Column(nullable = false, unique = true, updatable = false)
     private String alias;
     private String origin;
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(
             name = "superhero_powers_mapping",
             joinColumns = @JoinColumn(name = "superhero_id"),

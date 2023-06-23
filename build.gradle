@@ -25,3 +25,7 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+bootBuildImage{
+    imageName= "sanberg/superheroesapp"
+}
